@@ -1,14 +1,14 @@
 // config
-var bank = 'steemdice1';
+var bank = 'apasia.tech';
 var houseedge = 0.02;
-var maxwin_steem = 100;
-var maxwin_sbd = 25;
+var maxwin_steem = 50;
+var maxwin_sbd = 50;
 
-var steemws = 'wss://steemd.steemit.com';
+var steemws = 'wss://steemd.steemitdev.com';
 
 // display
-var updateInterval = 3000;
-var playing_with = 'steem';
+var updateInterval = 2000;
+var playing_with = 'sbd';
 
 // global variables
 var blocks = [];
@@ -121,8 +121,8 @@ $( document ).ready(function() {
     if(betChance > 99.99) {
       betChance = 99.99;
     }
-    if(betChance < 0.01) {
-      betChance = 0.01
+    if(betChance < 0.05) {
+      betChance = 0.05
     }
 
     $(this).val(betChance);
@@ -148,8 +148,8 @@ $( document ).ready(function() {
     if(betChance > 99.99) {
       betChance = 99.99;
     }
-    if(betChance < 0.01) {
-      betChance = 0.01
+    if(betChance < 0.05) {
+      betChance = 0.05
     }
 
     $(this).val(betChance);
@@ -216,7 +216,7 @@ $( document ).ready(function() {
             $("#roll_error").hide();
             $("#roll").show();
           },
-          4000
+          3222
         );
       });
     }
