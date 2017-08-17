@@ -26,3 +26,4 @@ ChangeLog for this fork:
 - [REMOVED] - Register Steem Link - There is no need for registration because newcomers to steem would have impossible mission to import/deposit funds inside just for playing a dice game.
 - [FIXED] - Logo height to 11% so dice is not having a cutout on the bottom.
 - [CHANGED] - Complete modifications and translations of platform to Chinese. 
+- [UPDATED] - Connecting to wss://steemd.steemitdev.com as fastest blockchain available - Proof of concept available https://ripplerm.github.io/steem-servers/
