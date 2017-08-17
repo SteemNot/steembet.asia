@@ -1,5 +1,5 @@
 // config
-var bank = 'apasia.tech';
+var bank = 'steemdice1';
 var houseedge = 0.02;
 var maxwin_steem = 50;
 var maxwin_sbd = 50;
