@@ -1,23 +1,22 @@
 # SteemBet.Asia UI
-Dice game for Steem Front-End
+Dice game for Steem | Front-End UI
 
 ## HTML GUI
 
-open index.html in your browser
+Open index.html in your browser
 
-uses minified [steemjs](https://github.com/pharesim/steemjs) and jquery
+(use minified [steemjs](https://github.com/pharesim/steemjs), jquery and app.js
 
 ## Python server
 
-requires sqlite
-to make database make command
+- requires sqlite to make sql file writeable.
 
-cp dicedb.txt dicedb.sql
+- cp dicedb.txt dicedb.sql
 
-run .sh script for start
+- run .sh script for start
 
 
-ChangeLog for this fork:
+## ChangeLog for this fork:
 
 - [MODIFIED] CSS fixes and edits about front-end login modal/body colors, divs and tags.
 - [MODIFIED] Reduced minimum wager to 0.05 ( SteemDice has 0.1 ).
