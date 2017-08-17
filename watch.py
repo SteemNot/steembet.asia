@@ -9,13 +9,13 @@ import sys
 from pprint import pprint
 
 #config
-watching = 'steemdice1'
-maxwin = {'STEEM': 100,'SBD': 25}
+watching = 'apasia.tech'
+maxwin = {'STEEM': 50,'SBD': 50}
 houseedge = 0.02
 
 wif = ''
 client = Steem()
-rpc = SteemNodeRPC('wss://steemd.steemit.com')
+rpc = SteemNodeRPC('wss://steemd.steemitdev.com')
 
 conn = sqlite3.connect('dice.db')
 c = conn.cursor()
@@ -57,10 +57,10 @@ def main():
             except:
               factor = 0
 
-            if factor > 0 and float(amount) >= 0.1:
+            if factor > 0 and float(amount) >= 0.05:
               win = float(amount) * 100/factor * (1 - houseedge)
               if win > maxwin[asset]:
-                transfer(watching,sender,tx[1]['amount'],'Sorry, the maximum amount you can win in one game is '+str(maxwin[asset])+' '+asset)
+                transfer(watching,sender,tx[1]['amount'],'对不起，你可以在一场比赛中赢得的最大赌注是 '+str(maxwin[asset])+' '+asset)
               else:
                 try:
                   with conn:
@@ -68,7 +68,7 @@ def main():
                 except:
                   print('ERROR INSERTING BET')
             elif memo != 'funding':
-                transfer(watching,sender,tx[1]['amount'],'Your bet was invalid')
+                transfer(watching,sender,tx[1]['amount'],'你的赌注是无效的')
 
       getblock = getblock + 1
     else:
@@ -129,12 +129,12 @@ def main():
           won[1] = won[1]+'0'
         won = won[0]+'.'+won[1]
         try:
-          transfer(watching,user,won+" "+asset,'Congratulations, you won! Your bet: '+details['type']+' '+str(details['number'])+'; Result: '+str(result)+' (Block '+str(block)+')')
+          transfer(watching,user,won+" "+asset,'恭喜你赢了！ 你的赌注 '+details['type']+' '+str(details['number'])+'; 结果： '+str(result)+' (Block '+str(block)+')')
           processed = True
         except:
           print('ERROR SENDING MONEY')
       elif won == 0 and amount > 0.003:
-        transfer(watching,user,'0.001 '+asset,'You lost! Your bet: '+details['type']+' '+str(details['number'])+'; Result: '+str(result)+' (Block '+str(block)+')')
+        transfer(watching,user,'0.001 '+asset,'你输了！ 你的赌注 '+details['type']+' '+str(details['number'])+'; 结果： '+str(result)+' (Block '+str(block)+')')
 
       unsaved = 1
       while unsaved == 1:
