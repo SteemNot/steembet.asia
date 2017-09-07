@@ -2,11 +2,11 @@
 
 <head>
 
-  <title>Steem &amp; SBD Dice &ndash; Play dice game with Steem and SBD &ndash; Steemdice</title>
+  <title>STEEMbet.asia | Where House-Edge as low as 1%</title>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Steem &amp; SBD Dice &ndash; - Roll the dice - Provably fair - Quick Support">
+  <meta name="description" content="STEEM & SBD - Dice Casino in ASIA">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,17 +18,15 @@
 
   <header class="text-center">
 
-    <h1 class="page-logo">steemdice</h1>
-
-    <div class="login" id="login_link"><i class="material-icons small">vpn_key</i> <a href="#login_modal" data-toggle="login_modal">Log in with your steem account</a></div>
-
-    <p id="signup_link" class="small signup">
-      <a href="https://steemit.com/enter_email">New to steem?</a>
-    </p>
-
+    <h1 class="page-logo">SteemBet 0.9b</h1>
+    
+    <div class="login" id="login_link"> <a href="#login_modal" data-toggle="login_modal">Steem Login</a> <i class="material-icons">vpn_key</i> | <a href="#about" data-toggle="about_modal">About</a> |
+      <a href="https://github.com/steemnot/steembetasia" target="_blank">Changelog</a> |
+      <a href="https://steemit.com/@steembet.asia">Official Steem Account</a>
+</div>
     <span id="logged_in_message">
-      Logged in as <span class="username"></span><br />
-      <a href="#logout" id="logout" class="small">Logout</a>
+     Steem user: <span class="username"></span><br />
+      <a href="#logout" id="logout" class="small">Sign out</a>
     </span>
 
   </header>
@@ -39,7 +37,7 @@
       <span class="bankroll__total ">
         <span id="bankroll" class="large">
           Your Bankroll:
-          <span class="play_with_steem"><span id="bankroll_steem">0 Steem</span></span>
+          <span class="play_with_steem"><span id="bankroll_steem">0 STEEM</span></span>
           <span class="play_with_sbd"><span id="bankroll_sbd">0 SBD</span></span>
         </span>
       <span id="bankroll_movement_container"></span>
@@ -48,55 +46,52 @@
     <div class="box">
 
       <div class="layout">
+     <p class="label__text"><a href="index-hi.html">Switch</a> to Hi-Dice</p>
         <label class="u-1-2">
-          <span class="label__text">Bet Amount</span>
+          <span class="label__text">Your Bet</span>
           <span class="input-double-container">
-            <input class="large++ strong" id="bet_amount" value="0.1">
+            <input class="large+ strong" id="bet_amount" value="0.1">
             <button id="double_bet">2&times;</button>
           </span>
         </label>
 
         <label class="u-1-2">
-          <span class="label__text">Win Chance</span>
+          <span class="label__text">Lower:</span>
           <span class="input-double-container">
-            <input class="large++ strong" id="bet_chance" value="50">
-            <button disabled="disabled">%</button>
+            <input class="large+ strong" id="bet_chance" value="75.222">
+            <button disabled="disabled">&#8804;</button>
         </label>
       </div>
 
       <p class="text-center">
-        If you win, you receive <span id="potential_win">0.196</span> <span class="play_with_steem">Steem</span><span class="play_with_sbd">SBD</span>
+        Potential Winnings <span id="potential_win">0.13</span> <span class="play_with_steem">STEEM</span><span class="play_with_sbd">SBD</span>
       </p>
 
-      <button class="large" id="roll">Roll The Dice</button>
-      <button class="large" disabled id="rolling"><span class="animation--pulse">rolling...</span></button>
+      <button class="large" id="roll">Roll the dice</button>
+      <button class="large" disabled id="rolling">Rolling...</button>
       <button class="large" disabled id="rolled">Bet placed!</button>
       <div id="roll_error">
-        <button class="large" disabled>Error placing bet!</button>
+        <button class="large" disabled>Wrong bet</button>
         <div id="roll_error_reason"></div>
       </div>
     </div>
-
-    <span class="game-limit smaller">
-      Game limit:
-      <span class="play_with_sbd"><span id="max_win_sbd"></span> SBD</span>
-      <span class="play_with_steem"><span id="max_win_steem"></span> Steem</span>
-    </span>
-
-    <div class="bankroll-switch">
-      <i class="material-icons bankroll-switch__icon">cached</i>
-      <a href="#" id="switch_to_sbd" class="smaller play_with_steem">play with SBD</a>
-      <a href="#" id="switch_to_steem" class="smaller play_with_sbd">play with Steem</a>
-    </div>
-
-    <div class="latest-rolls">
-      <table class="smaller">
+<div class="bankroll-switch">
+   <span class="game-limit">
+      <span class="play_with_sbd">Win Max: <span id="max_win_sbd"></span>SBD</span>
+      <span class="play_with_steem">Win Max: <span id="max_win_steem"></span> STEEM</span><br/> 
+      Switch Your Bankroll <i class="material-icons bankroll-switch__icon">cached</i>
+       <a href="#" id="switch_to_sbd" class="small play_with_steem">Bet with SBD</a>
+       <a href="#" id="switch_to_steem" class="small play_with_sbd">Bet with STEEM</a>
+    </span> 
+</div>
+  <div class="latest-rolls">
+      <table class="medium">
         <thead>
           <tr>
-            <th>User</th>
-            <th>Block</th>
+            <th>Player</th>
+            <th>Betting block</th>
             <th>Result</th>
-            <th>Bet</th>
+            <th>Player's chance</th>
             <th>Profit</th>
           </tr>
         </thead>
@@ -108,14 +103,9 @@
   </main>
 
   <footer class="page-footer text-center smaller">
-    <p style="opacity: .5">Last Roll: Block <span id="lastBlockHeight"></span> | ID <span id="lastBlockId"></span> | Result <span id="lastBlockGoal"></span></p>
-    <p>
-      <a href="#about" data-toggle="about_modal">about</a> |
-      <a href="https://github.com/pharesim/steemdice" target="_blank">github</a> |
-      <a href="mailto:pharesim@protonmail.com">support</a> |
-      <a href="https://steemit.com/@steemdice1">daily reports</a>
-    </p>
-    <p><strong>Be advised:</strong> Do not use untrusted steemdice forks. Always check the URL of the site you use to play!</p>
+    <h3>Last Dice Rolled: <span id="lastBlockGoal"></span></h3>
+    <p style="opacity: .5">Current Block: <span id="lastBlockHeight"></span> (ID: <span id="lastBlockId"></span>)</p>
+    <p>This is an Official GitHub Fork of Original Steemdice.net</p>
   </footer>
 
   <div id="login_modal" class="modal" data-toggle="login_modal">
@@ -124,14 +114,14 @@
       <h2>Login</h2>
 
       <p>
-        <label for="username">Account Name</label>
+        <label for="username">SteemIt Username</label>
         <input type="text" name="username" id="username" />
       </p>
       <p>
-        <label for="username">Password or WIF <a href="#about" data-toggle="about_modal">(?)</a></label>
+        <label for="username">Active/WIF Key<a href="#about" data-toggle="about_modal">(?)</a></label>
         <input type="password" name="password" id="password" />
       </p>
-      <div id="login_error" class="error">Error logging in. Please try again.</div>
+      <div id="login_error" class="error">Something went wrong...</div>
       <button id="login_button">Login</button>
       <span id="busy_indicator">Logging in...</span>
 
@@ -141,70 +131,79 @@
   <div id="about_modal" class="modal" data-toggle="about_modal">
     <div class="modal__inner box">
 
-      <h2>About</h2>
+      <h2>More About SteemBet.Asia gambling service</h2>
 
-      <p>SteemDice is a provably fair, blockchain based gambling application.</p>
+      <p>SteemBet.Asia is a provably fair, blockchain based dice gambling service.</p>
 
       <p>
-        <strong>How can you prove that the games are fair?</strong>
+        <strong>How do we tell that you're not rigging the games?</strong>
         <div class="small">
-          The transaction containing your bet defines the outcome. The result is calculated from the id of the block after.
+          The result is always taken from the block following your bet. Because it is calculated from the next block ID, it is impossible to guess or influence the result.
+        </div>
+      </p>
+      
+      
+      <p>
+        <strong>Whats the difference between you and original steemdice ?</strong>
+        <div class="small">
+          Steemdice was the original project however the security issue existed for hosting it anywhere other than github or similar. To prove it's authenticity and validity it had to make do a public service to prove there is nothing to hide, a poor work-around to detect malicious activity. Github provides free hosting/shell tools for the dev community which is awesome, yet hosting a live service on github is limited in bandwidth and performance. That kind of hosting makes the bot slow and laggy when more people start playing on the bot. Our bot is an experiment in running blockchain game services on a dedicated server, with hardended security, designed with the resources required to keep up with several players without performance or lag issues –Just like a gaming server should. You can still pull our fork of code and access it on Guthub. 
         </div>
       </p>
 
       <p>
-        <strong>How can I verify the result myself?</strong>
+        <strong>How to calculate the results for myself?</strong>
         <div class="small">
-          Take the last 5 characters of the block ID and convert them to a decimal integer. If this number is greater than 999,999 use the next block's ID. Divide the modulo 10,000 by 100 and you get the target.
+          Convert to a decimal integer the last 5 characters of the hexadecimal block ID. If it is higher than 999,999 then use the ID of the next block. Example dd007 to decimal = 905,223. In this case < 999,999 so now apply a modulus of 10^4 and divide it by 100. You just type into Google 905223%(10000)/100 and the result will be 52.23
         </div>
       </p>
 
       <p>
-        <strong>Why do I need to give you my active private key?</strong>
+        <strong>Why do you need to have my active private key?</strong>
         <div class="small">
-          SteemDice does not manage its own userbase or wallets. Instead, it works as a single purpose wallet to your steem account.
+          SteemBet.Asia is not storing your login credentials, and by Steem API they are not leaving your browser either. Same as it is on SteemIt.com, for any Wallet Transfer with a memo, you need your active/wif key, otherwise transfer/bet can't be completed. For more info look at the question regarding "Ultra-decreet and paranoid" :)
         </div>
       </p>
 
       <p>
-        <strong>Isn't this unsafe?</strong>
+        <strong>It all sounds very risky?</strong>
         <div class="small">
-          Like on steemit.com, your key is not sent to a server. Transactions are signed in your browser, and only the hashed signature is transmitted to a steemd node to broadcast it on the steem network. No second party will ever get your key!
+          Well, people are using original steemdice for a year now. Since we are official fork on github, to check and compare tree history between our projects, we strongly suggest that you visit us at <a href="https://github.com/steemnot/steembetasia" target="_blank">github</a>.
         </div>
       </p>
 
       <p>
-        <strong>What else do you do to protect my key?</strong>
+        <strong>Are there other measures you take?</strong>
         <div class="small">
-          Instead of hosting the application on our own servers, we chose github pages. Any attacker making himself able to change the code, will transparently show what he did with a new commit on github. Malicious activity can be detected immediately and by anyone.
+          We host the application on our own highly secured servers, and we host applications for a living. You can rest assured they are highly secure. Remember, all code is open source and available on GitHub for you to check. If anyone tampered with our bot or server where it runs, they would have to be on our server not on the Steem network. We have monitoring in place to detect and alert us of any malicious activity immediately. We also do protect our hosting files for just this domain additionally with <a href="http://www.crawltrack.net/crawlprotect/">CrawlProtect</a> tool.  
         </div>
       </p>
 
-      <p>
-        <strong>What can I do if I'm still unsure about the safety of my key?</strong>
-        <div class="small">
-          Save the page, or clone/download it from github. It works locally, on any device!
-        </div>
-      </p>
 
       <p>
-        <strong>I may be paranoid, what else can I do?</strong>
+        <strong>How else can I play, if I want to be ultra-decreet and paranoid?</strong>
         <div class="small">
-          It is possible to send your bets from the steemit.com wallet. The required memo format is
+          You can send your bets to our bot from the wallet directly, with the memo in following format:
           <pre>{"type":"higher/lower","number":50}</pre>
-          But let us emphasize again that both platforms use the same backend library to handle your transactions, and we offer the added security of github hosting. User safety was the first thought while designing this project. 
+          Example: <pre>{"type":"lower","number":55}</pre> would be sending bet with amount you transfer for a win on lower than 55. In any case, if you send wrong memo with just one space extra, bot will return your funds as invalid bet.
         </div>
       </p>
     </div>
   </div>
 
-  <div id="toaster" class="toasting toasting--show">
-    <p>Welcome to SteemDice! <a href="#login_modal" data-toggle="login_modal" id="login_link_toaster">Log in</a> to your Steem account with your active authority to play (<a href="#about_modal" data-toggle="about_modal">?</a>)</p>
-  </div>
-
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-  <script type="text/javascript" src="js/steem.min.js"></script>
+  <script type="text/javascript" src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  
+  <!--Start of Zendesk Chat Script-->
+  <script type="text/javascript">
+	window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+	d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+	_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+	$.src="https://v2.zopim.com/?55pXIGHtDyWFoecVZyBMf51LaO2wcT3N";z.t=+new Date;$.
+	type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+  </script>
+  <!--End of Zendesk Chat Script-->
 </body>
 </html>
+
