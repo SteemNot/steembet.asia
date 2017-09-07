@@ -3,6 +3,8 @@ Dice game for Steem | Front-End UI
 
 ## HTML GUI
 
+If you are Hosting GUI on a web server, please rename htaccess.txt to .htaccess for .html masquerade 
+
 Open index.html in your browser
 
 (use minified cdn [steemjs](https://cdn.steemjs.com/lib/latest/steem.min.js), jquery, lo-app.js and hi-app.js (lower and higher front-end)
