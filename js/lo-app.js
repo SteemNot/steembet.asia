@@ -1,13 +1,13 @@
 // config
-var bank = 'steemdice1';
-var houseedge = 0.02;
+var bank = 'steembet.asia';
+var houseedge = 0.01;
 var maxwin_steem = 50;
 var maxwin_sbd = 50;
 
 var steemws = 'wss://steemd.steemitdev.com';
 
 // display
-var updateInterval = 2000;
+var updateInterval = 3000;
 var playing_with = 'sbd';
 
 // global variables
@@ -79,7 +79,7 @@ $( document ).ready(function() {
   $("#bet_amount").change(function(e){
     let betAmount = $(this).val();
 
-    // minimum bet 100 of the smallest unit to ensure fees
+    // minimum bet 50 of the smallest unit to ensure fees
     if(betAmount < 0.1) {
       betAmount = 0.1;
     }
@@ -198,7 +198,7 @@ $( document ).ready(function() {
       }
 
       chance = $("#bet_chance").val();
-      steem.broadcast.transfer(wif, user, bank, amount, '{"ui":"steemdice.net","type":"lower","number":'+chance+'}', function(err, result) {
+      steem.broadcast.transfer(wif, user, bank, amount, '{"ui":"steembet.asia","type":"lower","number":'+chance+'}', function(err, result) {
 
         $("#rolling").hide();
         if(err !== null) {
@@ -216,7 +216,7 @@ $( document ).ready(function() {
             $("#roll_error").hide();
             $("#roll").show();
           },
-          3222
+          3500
         );
       });
     }
